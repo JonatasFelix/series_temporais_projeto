@@ -1,0 +1,80 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="absl-py" />
+          <option value="asttokens" />
+          <option value="astunparse" />
+          <option value="Bashutils" />
+          <option value="cachetools" />
+          <option value="certifi" />
+          <option value="charset-normalizer" />
+          <option value="colorama" />
+          <option value="executing" />
+          <option value="flatbuffers" />
+          <option value="gast" />
+          <option value="google-auth" />
+          <option value="google-auth-oauthlib" />
+          <option value="google-pasta" />
+          <option value="grpcio" />
+          <option value="h5py" />
+          <option value="idna" />
+          <option value="iniconfig" />
+          <option value="kagglehub" />
+          <option value="keras" />
+          <option value="layers" />
+          <option value="libclang" />
+          <option value="littleutils" />
+          <option value="Markdown" />
+          <option value="markdown-it-py" />
+          <option value="MarkupSafe" />
+          <option value="mdurl" />
+          <option value="ml_dtypes" />
+          <option value="namex" />
+          <option value="nltk" />
+          <option value="numpy" />
+          <option value="nvidia-smi" />
+          <option value="oauthlib" />
+          <option value="opt_einsum" />
+          <option value="optree" />
+          <option value="packaging" />
+          <option value="pillow" />
+          <option value="pluggy" />
+          <option value="preprocessing" />
+          <option value="protobuf" />
+          <option value="pyasn1" />
+          <option value="pyasn1_modules" />
+          <option value="Pygments" />
+          <option value="pytest" />
+          <option value="PyYAML" />
+          <option value="requests" />
+          <option value="requests-oauthlib" />
+          <option value="rich" />
+          <option value="rsa" />
+          <option value="scipy" />
+          <option value="six" />
+          <option value="sorcery" />
+          <option value="sphinx-rtd-theme" />
+          <option value="tensorboard" />
+          <option value="tensorboard-data-server" />
+          <option value="tensorflow" />
+          <option value="tensorflow-estimator" />
+          <option value="tensorflow-intel" />
+          <option value="tensorflow-io-gcs-filesystem" />
+          <option value="termcolor" />
+          <option value="tqdm" />
+          <option value="typing_extensions" />
+          <option value="urllib3" />
+          <option value="Werkzeug" />
+          <option value="wrapt" />
+          <option value="importlib_metadata" />
+          <option value="Keras-Preprocessing" />
+          <option value="tensorboard-plugin-wit" />
+          <option value="zipp" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
