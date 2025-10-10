@@ -1,78 +1,120 @@
-# Previsão de Mortes por Armas na Austrália
+# Análise Comparativa de Modelos para Previsão de Séries Temporais
 
-Este projeto tem como objetivo comparar diferentes abordagens de previsão de séries temporais aplicadas à quantidade de mortes por armas de fogo na Austrália. O workflow foi desenvolvido usando Python (Jupyter Notebook) e abrange desde a preparação dos dados até a análise comparativa dos modelos preditivos.
+Este projeto compara diferentes técnicas de previsão de séries temporais: ARIMA/SARIMA, KNN, CNN 1D (VGG-1D) e modelos híbridos. O objetivo é avaliar qual abordagem apresenta melhor desempenho em diferentes tipos de dados.
 
-## Objetivos
+## Datasets
 
-- Realizar uma previsão **1 passo à frente** das mortes por armas na Austrália.
-- Comparar técnicas tradicionais e modernas de séries temporais, além de modelos híbridos.
-- Avaliar modelos quanto à estabilidade, variância e desempenho usando **10 execuções** com diferentes seeds.
+Foram analisadas três séries temporais:
 
-## Dados
-
-- **Fonte:** `morte_armas_australia.xlsx`
-- **Descrição:** Série temporal com índices de datas e valores numéricos representando o número de mortes por armas de fogo na Austrália.
+- **dengue_pernambuco.xlsx**: casos semanais de dengue em Pernambuco
+- **household_consumption.xlsx**: consumo de energia residencial (dados horários)
+- **solar france.xlsx**: produção de energia solar na França (dados horários)
 
 ## Metodologia
 
-### 1. Divisão dos Dados
+### Divisão dos Dados
+Os dados foram divididos temporalmente em:
+- Treino: 50%
+- Validação: 25%
+- Teste: 25%
 
-A série é dividida de forma temporal em três conjuntos:
-- **Treino:** 50%
-- **Validação:** 25%
-- **Teste:** 25%
+### Modelos Utilizados
 
-### 2. Abordagens de Modelagem
+**ARIMA/SARIMA**
+- Método tradicional de Box & Jenkins
+- Seleção de parâmetros por AIC
+- Validação com teste de Ljung-Box
 
-Foram avaliadas quatro abordagens principais, todas testadas em 10 execuções para análise de variância:
+**KNN (K-Nearest Neighbors)**
+- Features: lags e estatísticas móveis
+- Otimização de hiperparâmetros por validação
 
-- **ARIMA** (Box & Jenkins): Seleção de parâmetros usando validação.
-- **Aprendizado de Máquina (AM) Clássico:**
-  - **SVR** (Support Vector Regression)
-  - **Random Forest**
-- **Aprendizado Profundo (AP):**
-  - **MLPRegressor** (Perceptron Multi-Camadas)
-- **Modelo Híbrido:** ARIMA para tendência e MLP nos resíduos.
+**VGG-1D (CNN 1D)**
+- Rede neural convolucional 1D
+- Janelas de 12 e 24 timesteps
+- Early stopping
 
-### 3. Features
+**Modelos Híbridos**
+- Residual: ARIMA + modelo ML nos resíduos
+- Ensemble: combinação ponderada de modelos
 
-Para os métodos de ML, foram usados **lags** como atributos (quantidade depende da frequência identificada na série) e variáveis de sazonalidade (mês, trimestre).
-
-### 4. Avaliação
-
-- Métricas: **MSE** (Erro Quadrático Médio) e **MAPE** (Erro Percentual Absoluto Médio).
-- Avaliação é feita em **treino, validação e teste**.
-- Resultados em tabelas e gráficos.
-
-### 5. Repetição (10 rodadas)
-
-Os modelos SVR, Random Forest, MLP e Híbrido foram rodados 10 vezes cada com seeds distintas para avaliar dispersão e robustez dos resultados.
-
-## Requisitos
-
-- Python 3.11+
-- Jupyter Notebook
-- Principais bibliotecas: pandas, numpy, matplotlib, scikit-learn, statsmodels, scipy.
-
-## Como Executar
-
-1. Instale os requisitos em um ambiente virtual (recomendado).
-2. Coloque o arquivo `morte_armas_australia.xlsx` na pasta `data/`.
-3. Execute o notebook em sequência de células para reproduzir os resultados.
+### Métricas
+- MSE (Mean Squared Error)
+- MAPE (Mean Absolute Percentage Error)
 
 ## Resultados
 
-Cada técnica foi avaliada por suas métricas de erro (MSE/MAPE). Ao fim, as melhores execuções de cada grupo são comparadas para encontrar o **modelo com melhor desempenho geral**.
+### Dengue em Pernambuco
 
-## Apresentação
+| Modelo                   | MSE Test | MAPE Test (%) |
+|:-------------------------|----------:|--------------:|
+| HÍBRIDO-ENSEMBLE         | 120.606   | 22.15         |
+| VGG1D(w=12, f=64, d=0.0) | 142.787   | 25.53         |
+| ARIMA                    | 175.078   | 27.59         |
+| HÍBRIDO-RESIDUAL         | 187.221   | 36.77         |
+| KNN                      | 584.605   | 33.34         |
 
-Sugestões para apresentação dos resultados:
-- Mostre o gráfico da série original destacando frequência e sazonalidade.
-- Explique resumidamente a metodologia Box & Jenkins utilizada no ARIMA.
-- Mostre como os lags foram inseridos como features.
-- Analise as tabelas geradas nas 10 execuções e discuta a estabilidade de cada abordagem.
-- Ressalte o vencedor geral e traga possíveis motivos para seu melhor desempenho.
+### Consumo de Energia
 
-## Licença
+| Modelo                   | MSE Test  | MAPE Test (%) |
+|:-------------------------|----------:|--------------:|
+| HÍBRIDO-ENSEMBLE         | 0.138     | 18.70         |
+| VGG1D(w=12, f=32, d=0.0) | 0.141     | 20.15         |
+| ARIMA                    | 0.161     | 15.70         |
+| HÍBRIDO-RESIDUAL         | 0.188     | 23.57         |
+| KNN                      | 0.192     | 17.79         |
 
-Livre para uso acadêmico e teste. Cite a fonte e os autores em produções derivadas.
+### Geração Solar
+
+| Modelo                   | MSE Test  |
+|:-------------------------|----------:|
+| HÍBRIDO-ENSEMBLE         | 13.461    |
+| ARIMA                    | 21.512    |
+| VGG1D(w=24, f=64, d=0.2) | 23.071    |
+| HÍBRIDO-RESIDUAL         | 28.467    |
+| KNN                      | 144.300   |
+
+Os resultados mostram que o modelo híbrido ensemble teve o melhor desempenho nos três datasets. Os gráficos e tabelas completas estão disponíveis nas pastas `out_dengue/`, `out_consumo_energia/` e `out_geracao_energia/`.
+
+## Requisitos
+
+- Python 3.8+
+- pandas, numpy, matplotlib
+- scikit-learn
+- statsmodels
+- tensorflow (para VGG-1D)
+- openpyxl
+
+Instalar com:
+```bash
+pip install pandas numpy matplotlib scikit-learn statsmodels tensorflow openpyxl
+```
+
+## Estrutura do Projeto
+
+```
+series_temporais_projeto/
+├── main.ipynb
+├── README.md
+├── data/
+│   ├── dengue_pernambuco.xlsx
+│   ├── household_consumption.xlsx
+│   ├── solar france.xlsx
+│   └── chuva_fortaleza.xlsx
+├── out_dengue/
+├── out_consumo_energia/
+└── out_geracao_energia/
+```
+
+## Como Executar
+
+1. Coloque os arquivos de dados na pasta `data/`
+2. Abra o notebook `main.ipynb`
+3. Execute as células em ordem
+4. O notebook vai perguntar qual dataset usar
+5. Os resultados são salvos automaticamente nas pastas `out_*/`
+
+Os arquivos gerados incluem:
+- Gráficos de previsão (`.png`)
+- Tabela de métricas (`metrics_summary.csv`)
+- Resumo em markdown (`presentation.md`)
