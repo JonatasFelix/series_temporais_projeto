@@ -2,11 +2,11 @@
 
 ## Série utilizada
 
-- Arquivo: `solar france.xlsx`
+- Arquivo: `household_consumption.xlsx`
 
 - Coluna temporal detectada: `Date and Hour`
 
-- Coluna alvo detectada: `Production`
+- Coluna alvo detectada: `Consumption`
 
 ## Metodologia
 
@@ -22,10 +22,10 @@
 
 ## Comparação (MSE / MAPE)
 
-| Modelo                   |   MSE_train |    MAPE_train |   MSE_val |      MAPE_val |   MSE_test |   MAPE_test |
-|:-------------------------|------------:|--------------:|----------:|--------------:|-----------:|------------:|
-| ARIMA                    |  10732      |   5.75113e+10 |  19206    |   1.26794e+11 |    21511.9 | 1.12705e+11 |
-| KNN                      |     22.5075 |   5.41726e+09 |  49825.9  |   4.89194e+09 |   144300   | 1.09218e+09 |
-| VGG1D(w=24, f=64, d=0.2) |   2457.54   |   1.82441e+10 |   8206.37 |   2.05438e+10 |    23071.4 | 2.10142e+10 |
-| HÍBRIDO-RESIDUAL         |    nan      | nan           |    nan    | nan           |    28466.5 | 1.45634e+11 |
-| HÍBRIDO-ENSEMBLE         |    nan      | nan           |    nan    | nan           |    13460.6 | 4.41365e+10 |
+| Modelo                   |   MSE_train |   MAPE_train |     MSE_val |   MAPE_val |   MSE_test |   MAPE_test |
+|:-------------------------|------------:|-------------:|------------:|-----------:|-----------:|------------:|
+| ARIMA                    |    0.319886 |      26.6423 |   0.0864718 |    10.007  |   0.161364 |     15.7006 |
+| KNN                      |    0        |       0      |   0.0989582 |    11.6223 |   0.191735 |     17.793  |
+| VGG1D(w=12, f=32, d=0.0) |    0.189416 |      18.8206 |   0.0718918 |    11.1916 |   0.14143  |     20.1538 |
+| HÍBRIDO-RESIDUAL         |  nan        |     nan      | nan         |   nan      |   0.188189 |     23.5678 |
+| HÍBRIDO-ENSEMBLE         |  nan        |     nan      | nan         |   nan      |   0.137798 |     18.6984 |

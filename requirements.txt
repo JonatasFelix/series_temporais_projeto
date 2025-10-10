@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+statsmodels
+openpyxl
+tensorflow>=2.12
+scipy
+jupyter
+ipykernel
