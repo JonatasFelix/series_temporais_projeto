@@ -1,0 +1,24 @@
+================================================================================
+RESUMO DO MODELO FINAL - SARIMAX COM VARIÁVEIS EXÓGENAS
+================================================================================
+
+Configuração: SARIMAX(2, 1, 0)x(2, 0, 0, 24)
+Variáveis Exógenas: ['hour_sin', 'hour_cos', 'dow_sin', 'dow_cos', 'is_weekend', 'trend']
+Frequência dos dados: Horária (agregação de dados por minuto)
+Período de treino: 58 observações
+Período de teste: 26 observações
+
+MÉTRICAS DE DESEMPENHO:
+  RMSE: 99.3277
+  MAE: 79.0987
+  MAPE: 226.36%
+  R²: -1.9455
+  AIC: 66.60
+  BIC: 66.00
+
+MELHORIA vs BASELINE:
+  RMSE: -102.47%
+  MAE: -111.98%
+  MAPE: -99.26%
+  R²: -791.12%
+================================================================================

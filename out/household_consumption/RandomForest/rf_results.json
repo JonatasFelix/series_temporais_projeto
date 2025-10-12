@@ -1,0 +1,19 @@
+{
+  "model": "RandomForest",
+  "best_params": {
+    "max_depth": 10,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "n_estimators": 200
+  },
+  "metrics": {
+    "mse": 0.014420843429353092,
+    "rmse": 0.12008681621790583,
+    "mae": 0.05469041351493518,
+    "mape": 5.245968349645475,
+    "r2": 0.9838588276392242
+  },
+  "n_features": 55,
+  "train": 3924,
+  "test": 981
+}

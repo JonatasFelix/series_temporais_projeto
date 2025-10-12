@@ -1,0 +1,47 @@
+{
+  "model": "Hybrid_SARIMAX_MLP",
+  "dataset": "solar_france",
+  "sarimax_params": {
+    "order": [
+      1,
+      1,
+      1
+    ],
+    "seasonal_order": [
+      2,
+      1,
+      1,
+      24
+    ],
+    "aic": 12179.238887552265,
+    "bic": 12209.130495615203
+  },
+  "mlp_params": {
+    "activation": "tanh",
+    "alpha": 0.0001,
+    "hidden_layer_sizes": [
+      128,
+      64
+    ],
+    "learning_rate_init": 0.01
+  },
+  "metrics": {
+    "mse": 205595.19046105465,
+    "rmse": 453.4260584274515,
+    "mae": 262.70282096476376,
+    "mape": 8123513346283.165,
+    "r2": 0.7692885288552205
+  },
+  "sarimax_baseline": {
+    "rmse": 440.60530793912534,
+    "mae": 251.34677077695082,
+    "r2": 0.7821509416039494
+  },
+  "improvement": {
+    "rmse_pct": -2.909803912325425,
+    "mae_pct": -4.518080798376552
+  },
+  "n_features": 57,
+  "train_size": 1127,
+  "test_size": 288
+}

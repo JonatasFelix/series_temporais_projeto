@@ -1,0 +1,23 @@
+{
+  "model": "Hibrido(ARIMA+MLP)",
+  "arima_order": [
+    2,
+    1,
+    2
+  ],
+  "mlp_params": {
+    "activation": "relu",
+    "alpha": 0.001,
+    "hidden_layer_sizes": [
+      128,
+      64
+    ]
+  },
+  "metrics": {
+    "mse": 1.3647506832798846,
+    "rmse": 1.168225441975942,
+    "mae": 1.0436976899614447,
+    "mape": 279.66847231911464,
+    "r2": -0.5454168053898825
+  }
+}

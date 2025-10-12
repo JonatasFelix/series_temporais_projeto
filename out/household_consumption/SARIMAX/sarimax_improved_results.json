@@ -1,0 +1,52 @@
+{
+  "model_type": "SARIMAX_IMPROVED",
+  "configuration": {
+    "order": [
+      3,
+      0,
+      3
+    ],
+    "seasonal_order": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "boxcox": false,
+    "lambda_boxcox": null
+  },
+  "metrics": {
+    "rmse": 0.9688751169487172,
+    "mae": 0.8813799242024543,
+    "mape": 103.8880078115606,
+    "r2": -0.24161873936131473,
+    "aic": 2919.94800704981,
+    "bic": 2963.999351028189
+  },
+  "comparison_with_original": {
+    "original_rmse": 1.128034833143286,
+    "original_mae": 1.0005141613208888,
+    "original_mape": 269.0621402926712,
+    "original_r2": -0.4409115795640759,
+    "improvement_rmse_pct": 14.109468211284556,
+    "improvement_mae_pct": 11.907301438007865,
+    "improvement_mape_pct": 61.38884210964915,
+    "improvement_r2_pct": 45.21043671308371
+  },
+  "diagnostics": {
+    "recommended_d": 0,
+    "seasonal_period_detected": null,
+    "stationarity_tests": {
+      "adf_pvalue": 9.128427575510307e-05,
+      "kpss_pvalue": 0.01,
+      "is_stationary": true
+    }
+  },
+  "data_info": {
+    "total_samples": 5000,
+    "train_samples": 4000,
+    "test_samples": 1000,
+    "start_date": "2006-12-16 16:24:00",
+    "end_date": "2006-12-20 03:43:00"
+  }
+}

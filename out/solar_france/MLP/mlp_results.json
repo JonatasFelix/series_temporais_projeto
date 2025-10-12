@@ -1,0 +1,22 @@
+{
+  "model": "MLP",
+  "dataset": "solar_france",
+  "best_params": {
+    "activation": "relu",
+    "alpha": 0.01,
+    "hidden_layer_sizes": [
+      128
+    ],
+    "learning_rate_init": 0.01
+  },
+  "metrics": {
+    "mse": 5315.497460970315,
+    "rmse": 72.90745819852943,
+    "mae": 45.28135650910677,
+    "mape": 5712158405610.478,
+    "r2": 0.9941362023595771
+  },
+  "n_features": 78,
+  "train_size": 1112,
+  "test_size": 279
+}

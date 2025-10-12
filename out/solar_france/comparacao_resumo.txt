@@ -1,0 +1,36 @@
+======================================================================
+INSIGHTS E RECOMENDAÇÕES
+======================================================================
+
+📊 Dataset: Produção Solar na França
+   - Dados horários com forte padrão diário (ciclo dia/noite)
+   - Sazonalidade clara de 24 horas
+   - Produção zero durante a noite
+
+🔍 Características dos Modelos:
+
+1️⃣  SARIMAX (1,1,1)x(2,1,1,24):
+   ✓ Captura bem componentes lineares e sazonalidade
+   ✓ Interpretável e teoricamente fundamentado
+   ✗ Pode ter dificuldade com não-linearidades
+
+2️⃣  MLP (Multi-Layer Perceptron):
+   ✓ Captura padrões não-lineares complexos
+   ✓ Bom com features de lag e temporais
+   ✗ Requer mais dados e tuning
+
+3️⃣  Random Forest:
+   ✓ Robusto e menos sensível a outliers
+   ✓ Captura interações entre features
+   ✗ Pode suavizar picos extremos
+
+4️⃣  Híbrido (SARIMAX + MLP):
+   ✓ Combina o melhor dos dois mundos
+   ✓ SARIMAX modela componente linear, MLP os resíduos
+   ✓ Geralmente superior quando há sazonalidade + não-linearidade
+
+======================================================================
+💡 RECOMENDAÇÕES:
+======================================================================
+
+======================================================================

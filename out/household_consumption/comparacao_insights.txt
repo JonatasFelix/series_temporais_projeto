@@ -1,0 +1,15 @@
+=== Insights de Série ===
+Força da sazonalidade (0-1): 0.744
+Força da tendência (0-1): 0.356
+
+=== Melhores modelos por métrica ===
+Melhor RMSE: RandomForest
+Melhor MAPE: RandomForest
+Melhor MAE: RandomForest
+Melhor R²: RandomForest
+
+=== Recomendações práticas ===
+SARIMAX tende a vantagem quando a sazonalidade/tendência é forte e o comportamento é próximo de linear.
+MLP tende a capturar não-linearidades e interações entre lags e variáveis sazonais (codificação sen/cos).
+Random Forest é robusto, bom para capturar relações não-lineares sem muita parametrização, mas pode suavizar picos.
+Híbrido (ARIMA + MLP) combina componente linear + não-linear; costuma ir melhor quando há sazonalidade clara e padrões residuais complexos.
